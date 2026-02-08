@@ -1,10 +1,23 @@
-import { HeroSection } from "../components";
+import {
+  BrowseByCategorySection,
+  HeroSection,
+  PopularRentalsSection,
+  StepProcessSection
+} from "../components";
 
 const HomePage = () => {
   return (
-    <div className="space-y-16">
+    <div>
       <HeroSection />
-      <div>HomePage</div>
+
+      <div className="bg-primary-foreground pt-16 pb-20 max-w-6xl 6xl:container mx-auto">
+        <BrowseByCategorySection />
+        <PopularRentalsSection />
+      </div>
+
+      <div className="bg-accent pt-16 pb-20">
+        <StepProcessSection />
+      </div>
     </div>
   );
 };

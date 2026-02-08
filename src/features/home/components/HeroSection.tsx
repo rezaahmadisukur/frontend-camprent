@@ -25,7 +25,10 @@ const HeroSection = () => {
       <HeroImage />
 
       <div
-        className={cn("max-w-5xl 5xl:container", "w-full mx-auto space-y-4")}
+        className={cn(
+          "max-w-5xl 5xl:container",
+          "w-full mx-auto space-y-4 p-4"
+        )}
       >
         <div className="py-2 px-4 w-fit rounded-full bg-primary-foreground/20 backdrop-blur-2xl">
           <p className="text-md font-semibold text-accent">
