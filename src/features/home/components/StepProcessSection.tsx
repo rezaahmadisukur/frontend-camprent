@@ -1,21 +1,33 @@
 import { SearchIcon } from "lucide-react";
+import { ComponentType } from "react";
+import { PROCESS_STEPS } from "../constants/home.contant";
+import { cn } from "~/lib/utils";
 
-const PartProcess = () => {
+type TypeProps = {
+  noStep: number;
+  icon: ComponentType<{
+    className: string;
+  }>;
+  label: string;
+  description: string;
+};
+
+const PartProcess = (props: TypeProps) => {
+  const Icon = props.icon;
   return (
     <div className="flex flex-col items-center gap-4">
       {/* Logo */}
       <div className="w-25 h-25 bg-background rounded-full relative flex justify-center items-center">
-        <SearchIcon className="size-10 text-secondary" />
+        <Icon className="size-10 text-secondary" />
         <div className="w-8 h-8 rounded-full absolute bg-primary text-primary-foreground -top-1 -right-1 flex justify-center items-center text-md font-semibold">
-          1
+          {props.noStep}
         </div>
       </div>
       {/* Title */}
-      <h1 className="text-foreground text-xl font-semibold">Browse & Select</h1>
+      <h1 className="text-foreground text-xl font-semibold">{props.label}</h1>
       {/* Description */}
       <p className="text-foreground/80 text-md font-normal text-center">
-        Explore our curated collection of premium camping gear and add items to
-        your cart.
+        {props.description}
       </p>
     </div>
   );
@@ -37,9 +49,15 @@ const StepProcessSection = () => {
       </div>
 
       {/* Step by Step */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-20 gap-12">
-        {[1, 2, 3, 4].map((_) => (
-          <PartProcess key={_} />
+      <div
+        className={cn(
+          "grid grid-cols-1 mt-20 gap-12",
+          "md:grid-cols-2 ",
+          "xl:grid-cols-4"
+        )}
+      >
+        {PROCESS_STEPS.map((process, index) => (
+          <PartProcess key={`${process.label}-${index}`} {...process} />
         ))}
       </div>
     </section>

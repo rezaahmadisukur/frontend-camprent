@@ -49,7 +49,7 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex gap-4">
+        <div className={cn("flex flex-col gap-4", "md:flex-row")}>
           <Button variant="default" size="lg" className="text-[16px]">
             Browse Gear <ArrowRight />
           </Button>

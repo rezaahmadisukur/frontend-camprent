@@ -11,7 +11,7 @@ const placeholderImageUrl =
 
 const ProductCard = () => {
   return (
-    <Card className="h-100 p-0 overflow-hidden group w-full">
+    <Card className="h-120 lg:h-100 p-0 overflow-hidden group w-full">
       <CardHeader className="relative h-full w-full overflow-hidden">
         <Image
           src={placeholderImageUrl}

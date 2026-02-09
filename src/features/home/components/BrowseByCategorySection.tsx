@@ -1,64 +1,48 @@
-import { CookieIcon, Package, TentIcon } from "lucide-react";
 import Link from "next/link";
+import { ComponentType } from "react";
 import { cn } from "~/lib/utils";
+import { CATEGORY_LIST } from "../constants/home.contant";
 
-const mokeup_category = [
-  {
-    logo: <TentIcon />,
-    color: "bg-accent-foreground",
-    title: "Tents",
-    items: 24
-  },
-  {
-    logo: <CookieIcon />,
-    color: "bg-primary",
-    title: "Cooking Gear",
-    items: 18
-  },
-  {
-    logo: <Package />,
-    color: "bg-secondary",
-    title: "Backpacks",
-    items: 15
-  },
-  {
-    logo: <Package />,
-    color: "bg-secondary",
-    title: "Backpacks",
-    items: 15
-  },
-  {
-    logo: <Package />,
-    color: "bg-secondary",
-    title: "Backpacks",
-    items: 15
-  },
-  {
-    logo: <Package />,
-    color: "bg-secondary",
-    title: "Backpacks",
-    items: 15
-  }
-];
+type TypeProps = {
+  id: number;
+  icon: ComponentType<{
+    className: string;
+  }>;
+  label: string;
+  items: number;
+};
 
-const BrowseByCategoryCard = () => {
+const BrowseByCategoryCard = (props: TypeProps) => {
+  const Icon = props.icon;
   return (
     <Link
-      href=""
-      className="bg-background border shadow-2xs p-8 rounded-xl flex flex-col justify-center items-center gap-1 w-42 h-42 transition-all duration-300 group hover:-translate-y-2 hover:shadow-lg"
+      href="#"
+      className={cn(
+        "bg-background border shadow-2xs p-8 rounded-xl flex flex-col justify-center items-center gap-1 w-full h-42 transition-all duration-300 group hover:-translate-y-2 hover:shadow-lg"
+      )}
     >
-      <div className="w-14 h-14 bg-accent-foreground flex justify-center items-center rounded-xl group-hover:scale-110 transition-all duration-300">
-        <TentIcon className="size-6 text-primary-foreground" />
+      <div
+        className={cn(
+          "w-14 h-14 flex justify-center items-center rounded-xl group-hover:scale-110 transition-all duration-300 bg-secondary/90",
+          { "bg-primary/90": props.id % 2 === 0 },
+          { "bg-muted-foreground/90": props.id % 3 === 0 }
+        )}
+      >
+        <Icon className="size-6 text-primary-foreground" />
       </div>
-      <h3 className="text-lg font-bold text-foreground/90">Tents</h3>
-      <p className="text-muted-foreground text-sm font-semibold/90">24 items</p>
+      <h3 className="text-xs md:text-sm font-bold text-foreground/90">
+        {props.label}
+      </h3>
+      <p className="text-muted-foreground text-sm font-semibold/90">
+        {props.items} items
+      </p>
     </Link>
   );
 };
 
 const BrowseByCategorySection = () => {
   return (
-    <div className="">
+    <section className={cn("p-6", "md:p-4", "lg:p-0")}>
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-foreground">
           Browse by Category
@@ -68,12 +52,21 @@ const BrowseByCategorySection = () => {
         </p>
       </div>
 
-      <div className={cn("grid mt-12 gap-4", "lg:grid-cols-6")}>
-        {mokeup_category.map((category, index) => (
-          <BrowseByCategoryCard key={`${category.title}-${index}`} />
+      <div
+        className={cn(
+          "grid grid-cols-2  mt-12 gap-2",
+          "md:grid-cols-3",
+          "xl:grid-cols-6 lg:gap-2"
+        )}
+      >
+        {CATEGORY_LIST.map((category, index) => (
+          <BrowseByCategoryCard
+            key={`${category.label}-${index}`}
+            {...category}
+          />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
