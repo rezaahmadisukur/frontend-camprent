@@ -51,7 +51,7 @@ const StepProcessSection = () => {
       {/* Step by Step */}
       <div
         className={cn(
-          "grid grid-cols-1 mt-20 gap-12",
+          "grid grid-cols-1 mt-20 gap-12 px-6",
           "md:grid-cols-2 ",
           "xl:grid-cols-4"
         )}

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, StarIcon } from "lucide-react";
 import Image from "next/image";
 import heroImage from "~/assets/hero-camping.webp";
 import { Button } from "~/components/ui/button";
@@ -31,8 +31,9 @@ const HeroSection = () => {
         )}
       >
         <div className="py-2 px-4 w-fit rounded-full bg-primary-foreground/20 backdrop-blur-2xl">
-          <p className="text-md font-semibold text-accent">
-            ⭐Rated 4.9/5 by 2,000+ adventurers
+          <p className="text-md font-semibold text-accent flex gap-2 items-center">
+            <StarIcon className="text-primary fill-primary size-5" /> Rated
+            4.9/5 by 2,000+ adventurers
           </p>
         </div>
 
