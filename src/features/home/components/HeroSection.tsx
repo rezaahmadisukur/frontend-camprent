@@ -31,19 +31,29 @@ const HeroSection = () => {
         )}
       >
         <div className="py-2 px-4 w-fit rounded-full bg-primary-foreground/20 backdrop-blur-2xl">
-          <p className="text-md font-semibold text-accent flex gap-2 items-center">
+          <p
+            className={cn(
+              "font-semibold text-accent flex gap-2 items-center text-sm",
+              "md:text-md"
+            )}
+          >
             <StarIcon className="text-primary fill-primary size-5" /> Rated
             4.9/5 by 2,000+ adventurers
           </p>
         </div>
 
-        <div className="text-6xl font-bold">
+        <div className={cn("font-bold text-4xl", "md:text-6xl")}>
           <h1 className="text-primary-foreground/90">Gear Up for Your Next</h1>
           <h1 className="text-primary/90">Adventure</h1>
         </div>
 
         <div className="max-w-2xl">
-          <p className="text-primary-foreground/90 font-medium text-xl">
+          <p
+            className={cn(
+              "text-primary-foreground/90 font-medium text-lg",
+              "md:text-xl"
+            )}
+          >
             Premium camping equipment rentals at affordable prices. Everything
             you need for the perfect outdoor experience, without the storage
             hassle.
