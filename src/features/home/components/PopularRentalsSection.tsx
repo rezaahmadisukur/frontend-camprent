@@ -4,8 +4,15 @@ import { ArrowRightIcon } from "lucide-react";
 import ProductCard from "~/components/shared/ProductCard";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import { useGetPopularProducts } from "../api/getPopularProducts";
+import { Activity } from "react";
 
 const PopularRentalsSection = () => {
+  const { data: products, isLoading } = useGetPopularProducts({
+    input: {
+      limit: 4
+    }
+  });
   return (
     <section className="p-6 md:p-4 lg:p-0 mt-40">
       <div className="space-y-4">
@@ -39,9 +46,11 @@ const PopularRentalsSection = () => {
           "xl:grid-cols-4 xl:gap-4"
         )}
       >
-        {[1, 2, 3, 4].map((_) => (
-          <ProductCard key={_} />
-        ))}
+        <Activity mode={products ? "visible" : "hidden"}>
+          {products?.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </Activity>
       </div>
     </section>
   );

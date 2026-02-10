@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import { Footer, Navbar } from "~/components/layout";
+import TanstackQueryProvider from "./providers";
+import { Toaster } from "sonner";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -27,13 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable}  ${poppins.variable} font-sans antialiased`}
-      >
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <TanstackQueryProvider>
+        <body
+          className={`${montserrat.variable}  ${poppins.variable} font-sans antialiased`}
+        >
+          <Navbar />
+          <NuqsAdapter>{children}</NuqsAdapter>
+          <Footer />
+          <Toaster />
+        </body>
+      </TanstackQueryProvider>
     </html>
   );
 }
