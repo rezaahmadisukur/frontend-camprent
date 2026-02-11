@@ -49,7 +49,10 @@ const Footer = () => {
             Join thousands of happy campers who rent their gear from us. Start
             exploring today!
           </p>
-          <Button variant="default" size="xl" className="text-md">
+          <Button
+            variant="default"
+            className="text-md h-12 rounded-md px-6 has-[>svg]:px-4"
+          >
             Start Renting Now
             <ArrowRightIcon />
           </Button>

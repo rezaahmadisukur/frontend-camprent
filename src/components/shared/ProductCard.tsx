@@ -24,7 +24,7 @@ const ProductCard = (props: TypeProps) => {
     <Card className="h-120 lg:h-100 p-0 overflow-hidden group w-full">
       <CardHeader className="relative h-full w-full overflow-hidden">
         <Image
-          src={placeholderImageUrl}
+          src={props.imageUrl ?? placeholderImageUrl}
           unoptimized
           fill
           alt="Cover"
@@ -41,7 +41,7 @@ const ProductCard = (props: TypeProps) => {
         </h4>
 
         <Link
-          href="#"
+          href={`/products/${props.id}`}
           className="text-md font-bold text-foreground transition-all duration-300 hover:text-secondary"
         >
           {props.name}
