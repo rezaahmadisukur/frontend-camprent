@@ -25,9 +25,6 @@ export const getPopularProducts = async (input?: GetPopularProductsInput) => {
       params: input
     }
   );
-
-  console.log(response);
-
   return response.data;
 };
 
@@ -43,7 +40,7 @@ export const getPopularProductsQueryOptions = (
 };
 
 type UseGetPopularProductsParams = {
-  queryConfig?: QueryConfig<typeof getPopularProducts>;
+  queryConfig?: QueryConfig<typeof getPopularProductsQueryOptions>;
   input?: GetPopularProductsInput;
 };
 

@@ -61,10 +61,18 @@ const HeroSection = () => {
         </div>
 
         <div className={cn("flex flex-col gap-4", "md:flex-row")}>
-          <Button variant="default" size="lg" className="text-[16px]">
+          <Button
+            variant="default"
+            size="lg"
+            className="text-[16px] cursor-pointer"
+          >
             Browse Gear <ArrowRight />
           </Button>
-          <Button variant="outline" size="lg" className="text-[16px]">
+          <Button
+            variant="outline"
+            size="lg"
+            className="text-[16px] bg-transparent border-2 text-secondary-foreground hover:bg-background/5 hover:text-secondary-foreground cursor-pointer"
+          >
             How It Works
           </Button>
         </div>

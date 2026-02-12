@@ -42,7 +42,7 @@ const ProductCard = (props: TypeProps) => {
 
         <Link
           href={`/products/${props.id}`}
-          className="text-md font-bold text-foreground transition-all duration-300 hover:text-secondary"
+          className="text-md font-bold text-foreground transition-all duration-300 hover:text-secondary line-clamp-1"
         >
           {props.name}
         </Link>
@@ -61,7 +61,7 @@ const ProductCard = (props: TypeProps) => {
             </span>
           </h1>
           {/* CTA */}
-          <Button variant="default" size="sm">
+          <Button variant="default" size="sm" className="cursor-pointer">
             <ShoppingCart />
             Rent
           </Button>

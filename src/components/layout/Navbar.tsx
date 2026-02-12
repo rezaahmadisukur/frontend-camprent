@@ -53,7 +53,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <Button
               variant="outline"
-              className="border-0 text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground relative"
+              className="border-0 text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground relative bg-transparent cursor-pointer"
             >
               <ShoppingCartIcon />
               <div className="w-4 h-4 bg-primary text-primary-foreground rounded-full absolute -top-1 -right-1 grid place-content-center text-[10px]">
@@ -62,7 +62,7 @@ const Navbar = () => {
             </Button>
             <Button
               variant="outline"
-              className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground"
+              className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground bg-transparent cursor-pointer"
             >
               <UserIcon />
               Sign In

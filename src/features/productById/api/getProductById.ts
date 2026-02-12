@@ -35,7 +35,7 @@ export const getProductByIdQueryOptions = (input: GetProductByIdInput) => {
 };
 
 type UseGetProductById = {
-  queryConfig?: QueryConfig<typeof getProductById>;
+  queryConfig?: QueryConfig<typeof getProductByIdQueryOptions>;
   input: GetProductByIdInput;
 };
 

@@ -1,17 +1,13 @@
-import {
-  ArrowRightIcon,
-  MailIcon,
-  MapPinIcon,
-  PhoneIcon,
-  RotateCcwIcon,
-  ShieldIcon,
-  TentIcon,
-  TruckIcon
-} from "lucide-react";
+import { ArrowRightIcon, TentIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
-import { PROFIT_LIST } from "../constans/layout.contant";
+import {
+  CATEGORIES,
+  CONTACTS,
+  PROFIT_LIST,
+  QUICK_LINKS
+} from "../constans/layout.contant";
 
 const Footer = () => {
   return (
@@ -51,7 +47,7 @@ const Footer = () => {
           </p>
           <Button
             variant="default"
-            className="text-md h-12 rounded-md px-6 has-[>svg]:px-4"
+            className="text-md h-12 rounded-md px-6 has-[>svg]:px-4 cursor-pointer"
           >
             Start Renting Now
             <ArrowRightIcon />
@@ -60,7 +56,7 @@ const Footer = () => {
         {/* Content */}
         <div
           className={cn(
-            "grid grid-cols-1 mt-40 gap-8",
+            "grid grid-cols-1 mt-30 gap-8",
             "md:grid-cols-2",
             "xl:grid-cols-4"
           )}
@@ -79,59 +75,56 @@ const Footer = () => {
               Quality equipment without the commitment.
             </p>
           </div>
+          {/* Quick Links */}
           <div>
             <h3 className="font-bold text-lg text-primary-foreground">
               Quick Links
             </h3>
             <div className="text-primary-foreground/80 flex flex-col mt-4 text-sm gap-4 font-medium">
-              <Link href="" className="hover:text-primary-foreground">
-                Browse Gear
-              </Link>
-              <Link href="">How It Works</Link>
-              <Link href="">Pricing</Link>
-              <Link href="">FAQs</Link>
+              {QUICK_LINKS.map((link, index) => (
+                <Link
+                  key={`${link.label}-${index}`}
+                  href={link.href}
+                  className="hover:text-primary-foreground"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
+          {/* Categories */}
           <div>
             <h3 className="font-bold text-lg text-primary-foreground">
               Categories
             </h3>
             <div className="text-primary-foreground/80 flex flex-col mt-4 text-sm gap-4 font-medium">
-              <Link href="" className="hover:text-primary-foreground">
-                Tenst
-              </Link>
-              <Link href="">Sleeping Gear</Link>
-              <Link href="">Backpacks</Link>
-              <Link href="">Cooking Gear</Link>
-              <Link href="">Lighting</Link>
+              {CATEGORIES.map((category, index) => (
+                <Link
+                  key={`${category.label}-${index}`}
+                  href={category.href}
+                  className="hover:text-primary-foreground"
+                >
+                  {category.label}
+                </Link>
+              ))}
             </div>
           </div>
+          {/* Contact Us */}
           <div>
             <h3 className="font-bold text-lg text-primary-foreground">
               Contact Us
             </h3>
             <div className="text-primary-foreground/80 flex flex-col mt-4 text-sm gap-4 font-medium">
-              <Link
-                href=""
-                className="hover:text-primary-foreground flex items-center gap-2"
-              >
-                <MailIcon className="size-4" />
-                hello@camprent.com
-              </Link>
-              <Link
-                href=""
-                className="hover:text-primary-foreground flex items-center gap-2"
-              >
-                <PhoneIcon className="size-4" />
-                (021) 123-4567
-              </Link>
-              <Link
-                href=""
-                className="hover:text-primary-foreground flex items-center gap-2"
-              >
-                <MapPinIcon className="size-4" />
-                Jawa Barat, Indonesia
-              </Link>
+              {CONTACTS.map((contact, index) => (
+                <Link
+                  key={`${contact.label}-${index}`}
+                  href={contact.href}
+                  className="hover:text-primary-foreground flex items-center gap-2"
+                >
+                  <contact.icon className="size-4" />
+                  {contact.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

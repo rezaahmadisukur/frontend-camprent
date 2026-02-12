@@ -30,7 +30,7 @@ const PopularRentalsSection = () => {
           <Button
             variant="outline"
             size="lg"
-            className="border-2 border-accent-foreground text-accent-foreground transition-all duration-500 hover:text-primary-foreground relative group z-10 overflow-hidden w-fit"
+            className="border-2 border-accent-foreground text-accent-foreground transition-all duration-500 hover:text-primary-foreground relative group z-10 overflow-hidden w-fit cursor-pointer"
           >
             View All Gear <ArrowRightIcon />
             <div className="w-full h-full bg-accent-foreground absolute inset-0 -translate-x-full transition-all duration-300 group-hover:translate-x-0 -z-10"></div>
