@@ -2,28 +2,22 @@ import { ProductSortBy } from "../api/getBrowseProducts";
 
 export const CATEGORY_LIST = [
   {
-    label: "Tents",
-    value: "tents"
+    label: "Tents"
   },
   {
-    label: "Cooking Gear",
-    value: "cooking"
+    label: "Cooking Gear"
   },
   {
-    label: "Backpacks",
-    value: "backpacks"
+    label: "Backpacks"
   },
   {
-    label: "Sleeping Gear",
-    value: "sleeping"
+    label: "Sleeping Gear"
   },
   {
-    label: "Lighting",
-    value: "lighting"
+    label: "Lighting"
   },
   {
-    label: "Camp Furniture",
-    value: "furniture"
+    label: "Camp Furniture"
   }
 ];
 

@@ -3,11 +3,12 @@ import { useGetBrowseProducts } from "../api/getBrowseProducts";
 import useBrowseProductQueryParams from "../hooks/useBrowseProductQueryParams";
 
 const BrowseProductList = () => {
-  const { searchSortBy } = useBrowseProductQueryParams();
+  const { searchSortBy, searchCategory } = useBrowseProductQueryParams();
   const { data: products, isLoading } = useGetBrowseProducts({
     input: {
       limit: 4,
-      sortBy: searchSortBy
+      sortBy: searchSortBy,
+      categoryIds: searchCategory
     }
   });
   return (
