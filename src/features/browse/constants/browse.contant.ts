@@ -1,3 +1,5 @@
+import { ProductSortBy } from "../api/getBrowseProducts";
+
 export const CATEGORY_LIST = [
   {
     label: "Tents",
@@ -28,14 +30,14 @@ export const CATEGORY_LIST = [
 export const SORT_BY_OPTIONS = [
   {
     label: "Recommended",
-    value: "recomended"
+    value: ProductSortBy.RECOMMENDED
   },
   {
     label: "Price: Low to High",
-    value: "price-asc"
+    value: ProductSortBy.PRICE_ASC
   },
   {
     label: "Price: High to Low",
-    value: "price-desc"
+    value: ProductSortBy.PRICE_DESC
   }
 ];

@@ -1,3 +1,5 @@
+"use client";
+
 import { SlidersHorizontalIcon } from "lucide-react";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Field, FieldGroup, FieldLabel } from "~/components/ui/field";
@@ -8,6 +10,8 @@ import {
   SelectTrigger,
   SelectValue
 } from "~/components/ui/select";
+import useBrowseProductQueryParams from "../hooks/useBrowseProductQueryParams";
+import { ProductSortBy } from "../api/getBrowseProducts";
 
 type categories = {
   label: string;
@@ -16,7 +20,7 @@ type categories = {
 
 type options = {
   label: string;
-  value: string;
+  value: ProductSortBy;
 };
 
 type TProps = {
@@ -25,6 +29,8 @@ type TProps = {
 };
 
 const ProductFilter = (props: TProps) => {
+  const { searchCategory, setSearchCategory, searchSortBy, setSearchSortBy } =
+    useBrowseProductQueryParams();
   return (
     <aside className="col-span-1 bg-background border border-foreground/20 py-8 px-4 shadow-sm rounded-2xl h-fit">
       <div className="flex items-center gap-2">
@@ -54,7 +60,10 @@ const ProductFilter = (props: TProps) => {
         <h1 className="select-none text-md text-foreground/40 font-semibold uppercase">
           Sort By
         </h1>
-        <Select>
+        <Select
+          value={searchSortBy}
+          onValueChange={(value) => setSearchSortBy(value as ProductSortBy)}
+        >
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Select a sort option" />
           </SelectTrigger>

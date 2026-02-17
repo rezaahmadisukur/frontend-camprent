@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderBrowse from "../components/HeaderBrowse";
 import ProductFilter from "../components/BrowseProductFilter";
 import { CATEGORY_LIST, SORT_BY_OPTIONS } from "../constants/browse.contant";

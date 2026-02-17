@@ -1,9 +1,18 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "~/lib/axios";
-import { QueryConfig, queryConfig } from "../../../lib/react-query";
+import { QueryConfig } from "../../../lib/react-query";
+
+export enum ProductSortBy {
+  RECOMMENDED = "recommended",
+  PRICE_ASC = "price-asc",
+  PRICE_DESC = "price-desc"
+}
 
 type GetBrowseProductsInput = {
   limit?: number;
+  productName?: string;
+  sortBy?: string | null;
+  categoryIds?: string[];
 };
 
 type GetBrowseProductsResponse = {
@@ -18,22 +27,25 @@ type GetBrowseProductsResponse = {
   };
 };
 
-export const getBrowseProducts = async (input?: GetBrowseProductsInput) => {
-  const response = await axiosInstance.get<GetBrowseProductsResponse[]>(
-    "/product",
-    {
-      params: input
-    }
+export const getBrowseProducts = async (
+  input?: GetBrowseProductsInput
+): Promise<GetBrowseProductsResponse[]> => {
+  const response = await axiosInstance.post<GetBrowseProductsResponse[]>(
+    "/product/browse",
+    input
   );
 
   return response.data;
 };
 
-export const getBrowseProductsQueryKey = () => ["products"];
+export const getBrowseProductsQueryKey = (input?: GetBrowseProductsInput) => [
+  "products-browse",
+  input
+];
 
 const getBrowseProductsQueryOptions = (input?: GetBrowseProductsInput) => {
   return queryOptions({
-    queryKey: getBrowseProductsQueryKey(),
+    queryKey: getBrowseProductsQueryKey(input),
     queryFn: () => getBrowseProducts(input)
   });
 };
