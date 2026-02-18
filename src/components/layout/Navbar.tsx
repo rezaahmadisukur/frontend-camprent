@@ -75,7 +75,7 @@ const Navbar = () => {
         <Button
           onClick={() => setIsOpen((prev) => !prev)}
           variant="outline"
-          className="text-foreground border-0 inline-block md:hidden"
+          className="text-foreground border-0 inline-block md:hidden bg-transparent cursor-pointer hover:bg-transparent hover:text-secondary"
         >
           {isOpen ? (
             <XIcon className="size-6" />
@@ -96,9 +96,9 @@ const Navbar = () => {
                   key={index}
                   variant="outline"
                   className={cn(
-                    "w-full text-start text-foreground/80 font-semibold border-0 hover:bg-foreground/8",
+                    "w-full text-start bg-transparent text-foreground/80 font-semibold border-0 hover:bg-foreground/8",
                     {
-                      "bg-secondary border-secondary hover:bg-secondary text-secondary-foreground":
+                      "bg-secondary border-secondary hover:bg-secondary text-secondary-foreground hover:text-secondary-foreground":
                         nav.href === pathname
                     }
                   )}
@@ -117,7 +117,7 @@ const Navbar = () => {
               <div className="w-full">
                 <Button
                   variant="outline"
-                  className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground w-full"
+                  className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground w-full bg-transparent cursor-pointer"
                 >
                   <UserIcon />
                   Sign In
@@ -127,7 +127,7 @@ const Navbar = () => {
               <div>
                 <Button
                   variant="outline"
-                  className="border-0 text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground relative w-full"
+                  className="border-0 text-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground relative w-full bg-transparent cursor-pointer"
                 >
                   <ShoppingCartIcon />
                   <div className="w-4 h-4 bg-primary text-primary-foreground rounded-full absolute -top-1 -right-1 grid place-content-center text-[10px]">

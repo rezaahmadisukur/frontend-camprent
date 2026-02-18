@@ -57,7 +57,7 @@ const BrowseProductFilter = (props: TProps) => {
   };
 
   return (
-    <aside className="col-span-1 bg-background border border-foreground/20 py-8 px-4 shadow-sm rounded-2xl h-fit">
+    <aside className="col-span-4 md:col-span-1 lg:col-span-1 bg-background border border-foreground/20 py-8 px-4 shadow-sm rounded-2xl h-fit">
       <div className="flex items-center gap-2">
         <SlidersHorizontalIcon className="size-6 text-secondary" />
         <h1 className="text-lg font-semibold">Filters</h1>

@@ -12,7 +12,7 @@ const BrowseProductList = () => {
     }
   });
   return (
-    <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="col-span-4 md:col-span-3 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {products?.map((product) => (
         <ProductCard key={product.id} {...product} />
       ))}
