@@ -1,3 +1,4 @@
+import UserLayout from "~/components/layout/user/UserLayout";
 import {
   BrowseByCategorySection,
   HeroSection,
@@ -7,7 +8,7 @@ import {
 
 const HomePage = () => {
   return (
-    <div>
+    <UserLayout>
       <HeroSection />
 
       <div className="bg-primary-foreground pt-16 pb-20 max-w-6xl 6xl:container mx-auto">
@@ -18,7 +19,7 @@ const HomePage = () => {
       <div className="bg-accent pt-16 pb-20">
         <StepProcessSection />
       </div>
-    </div>
+    </UserLayout>
   );
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
-import { Footer, Navbar } from "~/components/layout";
+// import { Footer, Navbar } from "~/components/layout";
 import TanstackQueryProvider from "./providers";
 import { Toaster } from "sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -34,9 +34,7 @@ export default function RootLayout({
         <body
           className={`${montserrat.variable}  ${poppins.variable} font-sans antialiased`}
         >
-          <Navbar />
           <NuqsAdapter>{children}</NuqsAdapter>
-          <Footer />
           <Toaster />
         </body>
       </TanstackQueryProvider>

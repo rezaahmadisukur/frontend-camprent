@@ -14,18 +14,12 @@ import useBrowseProductQueryParams from "../hooks/useBrowseProductQueryParams";
 import { ProductSortBy } from "../api/getBrowseProducts";
 import { useGetBrowseCategories } from "../api/getBrowseCategories";
 
-// type categories = {
-//   label: string;
-//   value: string;
-// };
-
 type options = {
   label: string;
   value: ProductSortBy;
 };
 
 type TProps = {
-  // categories: categories[];
   options: options[];
 };
 

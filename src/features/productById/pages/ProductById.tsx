@@ -3,6 +3,7 @@ import { getProductById } from "../api/getProductById";
 import ProductDetailPageInner from "../components/ProductDetailPageInner";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import UserLayout from "~/components/layout/user/UserLayout";
 
 const placeholderImageUrl =
   "https://images.unsplash.com/photo-1632088679704-6692a94ada2c?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -43,7 +44,7 @@ const ProductByIdPage = async ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <div className="py-20">
+    <UserLayout className="py-20">
       <ProductDetailPageInner
         id={product.id}
         name={product.name}
@@ -52,7 +53,7 @@ const ProductByIdPage = async ({ params }: { params: { slug: string } }) => {
         description={product.description ?? "No description available"}
         category={product.category}
       />
-    </div>
+    </UserLayout>
   );
 };
 

@@ -13,30 +13,23 @@ const Register = () => {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="name">Full Name</FieldLabel>
-          <Input id="name" type="text" placeholder="John Doe" required />
+          <Input id="name" type="text" placeholder="John Doe" />
         </Field>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input id="email" type="email" placeholder="m@example.com" />
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
-          <Input id="password" type="password" required />
-          <FieldDescription>
-            Must be at least 8 characters long.
-          </FieldDescription>
+          <Input id="password" type="password" />
         </Field>
         <Field>
           <FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
-          <Input id="confirm-password" type="password" required />
-          <FieldDescription>Please confirm your password.</FieldDescription>
+          <Input id="confirm-password" type="password" />
         </Field>
         <FieldGroup>
           <Field>
             <Button type="submit">Create Account</Button>
-            <Button variant="outline" type="button">
-              Sign up with Google
-            </Button>
             <FieldDescription className="px-6 text-center">
               Already have an account? <a href="#">Sign in</a>
             </FieldDescription>

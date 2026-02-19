@@ -1,6 +1,10 @@
 import { TentIcon } from "lucide-react";
 
-const HeaderAuth = () => {
+type TProps = {
+  headDesc?: string;
+};
+
+const HeaderAuth = (props: TProps) => {
   return (
     <div className="flex flex-col justify-center gap-4">
       {/* Logo */}
@@ -12,7 +16,7 @@ const HeaderAuth = () => {
       </div>
       {/* Description */}
       <p className="font-semibold text-lg text-foreground/50">
-        Welcome back, adventurer!
+        {props.headDesc}
       </p>
     </div>
   );
