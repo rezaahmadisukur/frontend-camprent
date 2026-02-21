@@ -60,14 +60,16 @@ const Navbar = () => {
                 1
               </div>
             </Button>
-            <Button
-              variant="outline"
-              className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground bg-transparent cursor-pointer"
-            >
-              <UserIcon />
-              Sign In
-              <div className="absolute w-full h-full bg-secondary -translate-y-full group-hover:translate-y-0 transition-all duration-300 -z-20 inset-0"></div>
-            </Button>
+            <Link href="/auth">
+              <Button
+                variant="outline"
+                className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground bg-transparent cursor-pointer"
+              >
+                <UserIcon />
+                Sign In
+                <div className="absolute w-full h-full bg-secondary -translate-y-full group-hover:translate-y-0 transition-all duration-300 -z-20 inset-0"></div>
+              </Button>
+            </Link>
           </div>
         </div>
 
