@@ -2,7 +2,7 @@ import * as z from "zod";
 
 export const RegisterFormSchema = z
   .object({
-    fullname: z.string().min(1, { message: "Fullname is required" }),
+    name: z.string().min(1, { message: "Fullname is required" }),
     email: z
       .string()
       .min(1, { message: "Email is required" })

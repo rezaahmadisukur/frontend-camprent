@@ -10,14 +10,16 @@ import { Input } from "~/components/ui/input";
 import { Controller } from "react-hook-form";
 import useRegisterForm from "../hooks/useRegisterForm";
 import Link from "next/link";
+import { Activity } from "react";
+import { Spinner } from "~/components/ui/spinner";
 
 const Register = () => {
-  const { form, register } = useRegisterForm();
+  const { form, register, isPending } = useRegisterForm();
   return (
     <form onSubmit={form.handleSubmit(register)}>
       <FieldGroup>
         <Controller
-          name="fullname"
+          name="name"
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid}>
@@ -93,7 +95,11 @@ const Register = () => {
               variant="secondary"
               type="submit"
               className="cursor-pointer"
+              disabled={isPending}
             >
+              <Activity mode={isPending ? "visible" : "hidden"}>
+                <Spinner />
+              </Activity>
               Create Account
             </Button>
           </Field>
