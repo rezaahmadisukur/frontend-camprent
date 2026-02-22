@@ -2,29 +2,58 @@ import { Button } from "~/components/ui/button";
 import {
   Field,
   FieldDescription,
+  FieldError,
   FieldGroup,
   FieldLabel
 } from "~/components/ui/field";
 import { Input } from "~/components/ui/input";
-// import { Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
+import useLoginForm from "../hooks/useLoginForm";
 
 const Login = () => {
+  const { form, login } = useLoginForm();
   return (
-    <form>
+    <form onSubmit={form.handleSubmit(login)}>
       <FieldGroup>
+        <Controller
+          name="email"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+              <Input
+                id={field.name}
+                type="email"
+                placeholder="m@example.com"
+                aria-invalid={fieldState.invalid}
+                {...field}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="password"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+              <Input
+                id={field.name}
+                type="password"
+                placeholder="********"
+                aria-invalid={fieldState.invalid}
+                {...field}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
-        </Field>
-        <Field>
-          <FieldLabel htmlFor="password">Password</FieldLabel>
-          <Input id="password" type="password" required />
-        </Field>
-        <Field>
-          <Button type="submit">Login</Button>
-          <FieldDescription className="text-center">
-            Don&apos;t have an account? <a href="#">Sign up</a>
-          </FieldDescription>
+          <Button type="submit" variant="secondary" className="cursor-pointer">
+            Login
+          </Button>
         </Field>
       </FieldGroup>
     </form>

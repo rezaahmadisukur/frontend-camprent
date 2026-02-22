@@ -9,6 +9,7 @@ import {
 import { Input } from "~/components/ui/input";
 import { Controller } from "react-hook-form";
 import useRegisterForm from "../hooks/useRegisterForm";
+import Link from "next/link";
 
 const Register = () => {
   const { form, register } = useRegisterForm();
@@ -88,10 +89,13 @@ const Register = () => {
         />
         <FieldGroup>
           <Field>
-            <Button type="submit">Create Account</Button>
-            <FieldDescription className="px-6 text-center">
-              Already have an account? <a href="#">Sign in</a>
-            </FieldDescription>
+            <Button
+              variant="secondary"
+              type="submit"
+              className="cursor-pointer"
+            >
+              Create Account
+            </Button>
           </Field>
         </FieldGroup>
       </FieldGroup>
