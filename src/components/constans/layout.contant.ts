@@ -18,7 +18,7 @@ export const NAV_LIST = [
     label: "Browse Gear"
   },
   {
-    href: "/rentals",
+    href: "/dashboard",
     label: "My Rentals"
   }
 ];

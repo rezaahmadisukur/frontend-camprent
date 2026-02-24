@@ -7,10 +7,11 @@ export function proxy(request: NextRequest) {
 
   // 2. Define protected vs public paths
   const isAuth = pathname.startsWith("/auth");
-  const isDashboardPage = pathname.startsWith("/dashboard");
+  const protectedPaths = ["/dashboard"];
+  const isProtected = protectedPaths.some((path) => pathname.startsWith(path));
 
   // Case A: User is not logged in but trying to access /dashboard
-  if (!token && isDashboardPage) {
+  if (!token && isProtected) {
     return NextResponse.redirect(new URL("/auth", request.url));
   }
 
@@ -21,3 +22,7 @@ export function proxy(request: NextRequest) {
 
   return NextResponse.next();
 }
+
+export const config = {
+  matcher: ["/dashboard/:path*"]
+};
