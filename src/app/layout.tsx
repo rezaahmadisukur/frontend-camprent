@@ -33,6 +33,7 @@ export default function RootLayout({
       <TanstackQueryProvider>
         <body
           className={`${montserrat.variable}  ${poppins.variable} font-sans antialiased`}
+          suppressHydrationWarning
         >
           <NuqsAdapter>{children}</NuqsAdapter>
           <Toaster />
