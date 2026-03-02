@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
   // 1. Get Token from cookies
@@ -16,6 +16,8 @@ export function proxy(request: NextRequest) {
   }
 
   // Case B: User is logged in but trying to access /auth
+  console.log(token);
+  console.log(isAuth);
   if (token && isAuth) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
@@ -24,5 +26,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"]
+  matcher: ["/dashboard/:path*", "/auth/:path*"]
 };
