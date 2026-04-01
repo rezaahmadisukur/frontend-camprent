@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
-import Login from "../components/Login";
-import Register from "../components/Register";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import Login from "./Login";
+import Register from "./Register";
 
 type TProps = {
   setHeadDesc: Dispatch<SetStateAction<string>>;

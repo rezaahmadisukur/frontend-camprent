@@ -1,7 +1,6 @@
 import { Button } from "~/components/ui/button";
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel
@@ -9,7 +8,6 @@ import {
 import { Input } from "~/components/ui/input";
 import { Controller } from "react-hook-form";
 import useRegisterForm from "../hooks/useRegisterForm";
-import Link from "next/link";
 import { Activity } from "react";
 import { Spinner } from "~/components/ui/spinner";
 

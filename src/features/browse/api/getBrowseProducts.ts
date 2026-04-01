@@ -34,9 +34,6 @@ export const getBrowseProducts = async (
     "/product/browse",
     input
   );
-
-  console.log(response.data);
-
   return response.data;
 };
 

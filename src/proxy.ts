@@ -16,8 +16,6 @@ export function proxy(request: NextRequest) {
   }
 
   // Case B: User is logged in but trying to access /auth
-  console.log(token);
-  console.log(isAuth);
   if (token && isAuth) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
