@@ -4,9 +4,9 @@ import { MutationConfig } from "~/lib/react-query";
 import { TRegisterFormSchema } from "../forms/register";
 
 export const registerUser = async (data: TRegisterFormSchema) => {
-  const { confirmPassword, ...result } = data;
-  // console.log(result);
-  const response = await axiosInstance.post("/auth/register", result);
+  // const { confirmPassword, ...result } = data;
+  console.log(data);
+  const response = await axiosInstance.post("/auth/register", data);
   return response.data;
 };
 
