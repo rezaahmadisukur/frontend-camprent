@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { axiosInstance } from "~/lib/axios";
 import { MutationConfig } from "~/lib/react-query";
-import { TRegisterFormSchema } from "../forms/register";
+import { TRegisterFormSchema } from "../form-schames/register";
 
 export const registerUser = async (data: TRegisterFormSchema) => {
   // const { confirmPassword, ...result } = data;

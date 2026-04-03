@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { LoginFormSchema, TLoginFormSchema } from "../forms/login";
+import { LoginFormSchema, TLoginFormSchema } from "../form-schames/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoginUser } from "../api/loginUser";
 import { toast } from "sonner";
@@ -11,7 +11,7 @@ const useLoginForm = () => {
     mutationConfig: {
       onError: (error) =>
         toast.error("Registration Failed", {
-          description: error?.response?.data?.message
+          description: error?.response.data?.message
         }),
       onSuccess: () =>
         toast.success("Welcome, Successfully Logined", {
@@ -31,7 +31,7 @@ const useLoginForm = () => {
     try {
       mutate(data);
       router.refresh();
-      router.push("/dashboard");
+      router.push("/");
     } catch (error) {
       console.error(error);
     }

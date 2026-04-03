@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import UserLayout from "~/components/layout/user/UserLayout";
 
 const MyRentalPage = async () => {
   const cookieStore = await cookies();
@@ -10,9 +11,11 @@ const MyRentalPage = async () => {
   }
 
   return (
-    <div>
-      <h1>My Rental Page</h1>
-    </div>
+    <UserLayout>
+      <div className="min-h-screen mt-20">
+        <h1>My Rental Page</h1>
+      </div>
+    </UserLayout>
   );
 };
 
