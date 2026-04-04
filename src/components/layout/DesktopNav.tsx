@@ -5,9 +5,18 @@ import { NAV_LIST } from "../constans/layout.contant";
 import { cn } from "~/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
-import { ShoppingCartIcon, UserIcon } from "lucide-react";
+import { LogOutIcon, ShoppingCartIcon, UserIcon } from "lucide-react";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
-const DesktopNav = () => {
+type TProps = {
+  token?: RequestCookie | undefined;
+};
+
+const DesktopNav = (props: TProps) => {
+  const { token } = props;
+
+  console.log("desktop", token);
+
   const pathname = usePathname();
   return (
     <div className="hidden md:flex justify-between col-span-2">
@@ -36,16 +45,27 @@ const DesktopNav = () => {
             1
           </div>
         </Button>
-        <Link href="/auth">
+        {!token ? (
+          <Link href="/auth">
+            <Button
+              variant="outline"
+              className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground bg-transparent cursor-pointer"
+            >
+              <UserIcon />
+              Sign In
+              <div className="absolute w-full h-full bg-secondary -translate-y-full group-hover:translate-y-0 transition-all duration-300 -z-20 inset-0"></div>
+            </Button>
+          </Link>
+        ) : (
           <Button
             variant="outline"
-            className="border-2 border-secondary text-secondary relative overflow-hidden group z-10 hover:text-secondary-foreground bg-transparent cursor-pointer"
+            className="border-2 border-destructive text-destructive relative overflow-hidden group z-10 hover:text-destructive-foreground bg-transparent cursor-pointer"
           >
-            <UserIcon />
-            Sign In
-            <div className="absolute w-full h-full bg-secondary -translate-y-full group-hover:translate-y-0 transition-all duration-300 -z-20 inset-0"></div>
+            <LogOutIcon />
+            Log Out
+            <div className="absolute w-full h-full bg-destructive -translate-y-full group-hover:translate-y-0 transition-all duration-300 -z-20 inset-0"></div>
           </Button>
-        </Link>
+        )}
       </div>
     </div>
   );

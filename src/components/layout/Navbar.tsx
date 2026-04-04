@@ -4,8 +4,14 @@ import { cn } from "~/lib/utils";
 import DesktopNav from "./DesktopNav";
 import HambmenuMobile from "./HambmenuMobile";
 import MobileNav from "./MobileNav";
+import { cookies } from "next/headers";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("auth_token");
+
+  // console.log(typeof token?.value);
+
   return (
     <header className="sticky top-0 z-50 bg-background/50 w-full border-b backdrop-blur-md">
       <nav
@@ -23,7 +29,7 @@ const Navbar = () => {
           <span className="text-xl font-bold text-foreground">CampRent</span>
         </Link>
         {/* Desktop  */}
-        <DesktopNav />
+        <DesktopNav token={token} />
 
         {/*  Mobile Hambmenu */}
         <HambmenuMobile />
