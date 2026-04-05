@@ -10,7 +10,7 @@ const useLoginForm = () => {
   const { mutate } = useLoginUser({
     mutationConfig: {
       onError: (error) =>
-        toast.error("Registration Failed", {
+        toast.error("Login Failed", {
           description: error?.response.data?.message
         }),
       onSuccess: () =>

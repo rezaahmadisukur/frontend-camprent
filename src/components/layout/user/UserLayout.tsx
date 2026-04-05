@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { cn } from "~/lib/utils";
 
 type TProps = {
   children: ReactNode;

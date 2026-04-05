@@ -1,3 +1,5 @@
+"use client";
+
 import ProductCard from "~/components/shared/ProductCard";
 import { useGetBrowseProducts } from "../api/getBrowseProducts";
 import useBrowseProductQueryParams from "../hooks/useBrowseProductQueryParams";

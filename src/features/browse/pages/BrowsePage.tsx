@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import HeaderBrowse from "../components/HeaderBrowse";
 import BrowseProductFilter from "../components/BrowseProductFilter";

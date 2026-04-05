@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import { LogOutIcon, ShoppingCartIcon, UserIcon } from "lucide-react";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import useLogout from "~/features/auth/hooks/useLogout";
 
 type TProps = {
   token?: RequestCookie | undefined;
@@ -14,10 +15,10 @@ type TProps = {
 
 const DesktopNav = (props: TProps) => {
   const { token } = props;
-
-  console.log("desktop", token);
-
   const pathname = usePathname();
+  const { logout, isPending } = useLogout();
+  // console.log("desktop", token);
+
   return (
     <div className="hidden md:flex justify-between col-span-2">
       {/* List Page */}
@@ -58,6 +59,7 @@ const DesktopNav = (props: TProps) => {
           </Link>
         ) : (
           <Button
+            onClick={logout}
             variant="outline"
             className="border-2 border-destructive text-destructive relative overflow-hidden group z-10 hover:text-destructive-foreground bg-transparent cursor-pointer"
           >
