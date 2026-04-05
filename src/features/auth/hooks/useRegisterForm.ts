@@ -6,14 +6,17 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegisterUser } from "../api/registerUser";
 import { toast } from "sonner";
+import { AxiosError } from "axios";
 
 const useRegisterForm = () => {
   const { mutate, isPending } = useRegisterUser({
     mutationConfig: {
-      onError: (error) =>
+      onError: (error) => {
+        const axiosError = error as AxiosError<{ message: string }>;
         toast.error("Registration Failed", {
-          description: error?.response?.data?.message
-        }),
+          description: axiosError?.response?.data?.message
+        });
+      },
       onSuccess: () =>
         toast.success("Successfully registered account", {
           duration: 3000

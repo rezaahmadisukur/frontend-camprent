@@ -1,19 +1,15 @@
-"use client";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import AuthContent from "../components/AuthContent";
+const AuthPage = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("auth_token");
 
-import AuthForm from "../components/AuthForm";
-import HeaderAuth from "../components/HeaderAuth";
-import FooterAuth from "../components/FooterAuth";
-import useAuth from "../hooks/useAuth";
-const AuthPage = () => {
-  const { headDesc, setHeadDesc } = useAuth();
+  if (token) {
+    redirect("/dashboard");
+  }
 
-  return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-foreground/5 gap-8 py-10">
-      <HeaderAuth headDesc={headDesc} />
-      <AuthForm setHeadDesc={setHeadDesc} />
-      <FooterAuth />
-    </div>
-  );
+  return <AuthContent />;
 };
 
 export default AuthPage;

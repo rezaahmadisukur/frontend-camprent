@@ -4,19 +4,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoginUser } from "../api/loginUser";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { AxiosError } from "axios";
 
 const useLoginForm = () => {
   const router = useRouter();
   const { mutate } = useLoginUser({
     mutationConfig: {
-      onError: (error) =>
+      onError: (error) => {
+        const axiosError = error as AxiosError<{ message: string }>;
         toast.error("Login Failed", {
-          description: error?.response.data?.message
-        }),
-      onSuccess: () =>
+          description: axiosError.response?.data?.message
+        });
+      },
+
+      onSuccess: () => {
+        router.refresh();
+        router.push("/dashboard");
         toast.success("Welcome, Successfully Logined", {
           duration: 3000
-        })
+        });
+      }
     }
   });
   const form = useForm<TLoginFormSchema>({
@@ -30,8 +37,6 @@ const useLoginForm = () => {
   const login = async (data: TLoginFormSchema) => {
     try {
       mutate(data);
-      router.refresh();
-      router.push("/");
     } catch (error) {
       console.error(error);
     }
