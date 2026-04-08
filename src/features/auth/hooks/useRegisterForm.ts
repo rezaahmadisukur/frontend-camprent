@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import {
   RegisterFormSchema,
   TRegisterFormSchema
-} from "../form-schames/register";
+} from "../form-schemas/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegisterUser } from "../api/registerUser";
 import { toast } from "sonner";

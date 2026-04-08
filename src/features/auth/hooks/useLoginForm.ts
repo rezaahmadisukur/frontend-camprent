@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { LoginFormSchema, TLoginFormSchema } from "../form-schames/login";
+import { LoginFormSchema, TLoginFormSchema } from "../form-schemas/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoginUser } from "../api/loginUser";
 import { toast } from "sonner";

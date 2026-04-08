@@ -1,5 +1,5 @@
 import { axiosInstance } from "~/lib/axios";
-import { TLoginFormSchema } from "../form-schames/login";
+import { TLoginFormSchema } from "../form-schemas/login";
 import { MutationConfig } from "~/lib/react-query";
 import { useMutation } from "@tanstack/react-query";
 
