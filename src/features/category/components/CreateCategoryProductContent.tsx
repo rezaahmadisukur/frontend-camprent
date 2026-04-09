@@ -12,11 +12,13 @@ import { Button } from "~/components/ui/button";
 import { Activity } from "react";
 import { Spinner } from "~/components/ui/spinner";
 import { Input } from "~/components/ui/input";
+import Link from "next/link";
+import { ArrowLeftIcon } from "lucide-react";
 
 const CreateCategoryProductContent = () => {
   const { form, isPending, storeCategory } = useCreate();
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <div className="flex flex-col gap-12 min-h-screen items-center justify-center p-4">
       <div className="w-full max-w-lg rounded-lg border bg-white p-6 shadow-md">
         <form onSubmit={form.handleSubmit(storeCategory)}>
           <FieldGroup>
@@ -58,6 +60,15 @@ const CreateCategoryProductContent = () => {
             </FieldGroup>
           </FieldGroup>
         </form>
+      </div>
+      <div className="w-fit">
+        <Link
+          href="/dashboard/category"
+          className="flex gap-2 items-center text-foreground/60 hover:text-secondary duration-300 transition-all "
+        >
+          <ArrowLeftIcon className="size-4 font-normal" />
+          <p className="text-sm font-medium">Back to Category Dashboard</p>
+        </Link>
       </div>
     </div>
   );

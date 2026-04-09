@@ -6,7 +6,7 @@ type GetProductCategoriesInput = {
   limit?: number;
 };
 
-type GetProductCategoriesResponse = {
+export type GetProductCategoriesResponse = {
   id: string;
   name: string;
 };

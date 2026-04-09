@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue
 } from "~/components/ui/select";
-import { useGetProductCategories } from "../api/getCategory";
+import { useGetProductCategories } from "../../category/api/getCategory";
 
 const CreateProductContent = () => {
   const { data: categories } = useGetProductCategories();
