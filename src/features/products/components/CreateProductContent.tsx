@@ -12,8 +12,18 @@ import { Activity } from "react";
 import { Button } from "~/components/ui/button";
 import { Spinner } from "~/components/ui/spinner";
 import { Controller } from "react-hook-form";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "~/components/ui/select";
+import { useGetProductCategories } from "../api/getCategory";
 
 const CreateProductContent = () => {
+  const { data: categories } = useGetProductCategories();
   const { form, isPending, store } = useCreate();
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
@@ -106,7 +116,7 @@ const CreateProductContent = () => {
               />
             </div>
 
-            {/* Category ID - Kamu bisa ganti Input jadi Select jika sudah ada komponennya */}
+            {/* Category ID - Kamu bisa ganti Input jadi Select jika sudah ada komponennya
             <Controller
               name="categoryId"
               control={form.control}
@@ -124,6 +134,31 @@ const CreateProductContent = () => {
                     <FieldError errors={[fieldState.error]} />
                   )}
                 </Field>
+              )}
+            /> */}
+
+            <Controller
+              name="categoryId"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Select>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {categories?.map((category, index) => (
+                        <SelectItem
+                          key={index}
+                          value={category.name.toUpperCase()}
+                          className="capitalize"
+                        >
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               )}
             />
 

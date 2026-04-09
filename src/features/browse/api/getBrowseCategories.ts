@@ -1,7 +1,6 @@
 import { queryOptions, useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "~/lib/axios";
 import { QueryConfig } from "~/lib/react-query";
-import { queryConfig } from "../../../lib/react-query";
 
 type GetBrowseCategoriesInput = {
   limit?: number;
